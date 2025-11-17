@@ -5,7 +5,7 @@ string intToVietnamese(long num)
 {
     if (num == 0)
         return "khong";
-    string digitToText[10] = {"không", "mot", "hai", "ba", "bon", "nam", "sau", "bay", "tam", "chin"};
+    string digitToText[10] = {"khong", "mot", "hai", "ba", "bon", "nam", "sau", "bay", "tam", "chin"};
     string units[5] = {"", "nghin", "trieu", "ti", "nghin ti"}; // can add more
     string text = "";
     int unitCnt = 0;
@@ -71,4 +71,5 @@ int main()
     long num;
     cin >> num;
     cout << intToVietnamese(num);
+
 }
