@@ -7,6 +7,12 @@ string intToVietnamese(long num)
     if (num == 0)
         return "khong";
 
+    bool isNegative = false;
+    if (num < 0) {
+        isNegative = true;
+        num = -num;
+    }
+
     const string digitToText[10] = {
         "khong", "mot", "hai", "ba", "bon",
         "nam", "sau", "bay", "tam", "chin"
@@ -32,7 +38,7 @@ string intToVietnamese(long num)
 
             string part = "";
 
-            // Tram
+            // Tram 
             if (tram == 0) {
                 if (num > 0) 
                     part += "khong tram";
@@ -58,6 +64,7 @@ string intToVietnamese(long num)
                 else
                     part += " " + digitToText[donvi];
             }
+
             if (unitCnt > 0)
                 result = units[unitCnt] + " " + result;
 
@@ -70,6 +77,9 @@ string intToVietnamese(long num)
         result.pop_back();
     if (!result.empty() && result.front() == ' ')
         result.erase(0, 1);
+
+    if (isNegative)
+        result = "am " + result;
 
     return result;
 }
